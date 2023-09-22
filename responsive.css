@@ -42,7 +42,7 @@
     height: 50%;
   }
   #certif {
-    height: 210vh;
+    height: 280vh;
   }
   #contact {
     font-size: 0.7rem;
@@ -54,12 +54,12 @@
 }
 @media (max-width: 400px) {
   #certif {
-    height: 225vh;
+    height: 295vh;
   }
 }
 @media (max-width: 380px) {
   #certif {
-    height: 290vh;
+    height: 360vh;
   }
   #contact {
     font-size: 0.6rem;
@@ -67,6 +67,6 @@
 }
 @media (max-width: 360px) {
   #certif {
-    height: 260vh;
+    height: 330vh;
   }
 }
