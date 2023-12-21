@@ -50,6 +50,9 @@ a {
   text-decoration: none;
   color: var(--kuning-cerah);
 }
+a:hover {
+  color: var(--biru-mid);
+}
 #navbar li {
   list-style-type: none;
   float: left;
@@ -115,7 +118,7 @@ a {
   background: linear-gradient(210deg, var(--biru-gelap), var(--biru-mid));
   border-radius: 30px;
   margin-top: 10px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
 }
 .skill-box img {
   width: 70px;
@@ -138,8 +141,22 @@ a {
   height: 210px;
   background: linear-gradient(210deg, var(--biru-gelap), var(--biru-mid));
   border-radius: 30px;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   margin-top: 10px;
+}
+.certif-box:hover {
+  img {
+    width: 250px;
+    height: 180px;
+    border-radius: 20px;
+    margin-top: 0;
+  }
+  h3 {
+    display: none;
+  }
+  p {
+    display: none;
+  }
 }
 .certif-box img {
   margin-top: 5px;
@@ -171,4 +188,8 @@ a {
 #contact img {
   width: 25px;
   height: 25px;
+}
+#contact img:hover {
+  width: 23px;
+  height: 23px;
 }
