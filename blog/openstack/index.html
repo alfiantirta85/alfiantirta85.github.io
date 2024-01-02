@@ -11,6 +11,11 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap"
     />
+    <link
+      rel="shortcut icon"
+      href="../../assets/logo.png"
+      type="image/x-icon"
+    />
     <title>Deploy Aplikasi Point of Sales (POS) di atas OpenStack</title>
     <style>
       p,
@@ -18,7 +23,7 @@
       ul,
       ol,
       div {
-        font-size: 20px;
+        font-size: 18px;
         text-align: justify;
       }
     </style>
@@ -124,21 +129,21 @@ $ source ~/kolla-venv/bin/activate</pre
             >
             <p>
               Selanjutnya, kita akan membuat project baru yang akan digunakan
-              untuk mengisolasi instance kita.
+              untuk mengelompokkan instance kita.
             </p>
             <pre style="background-color: #f0f0f0" class="p-2">
 $ openstack project create project-pos</pre
             >
             <p>
               Di dalam project tersebut, kita akan membuat user dengan password
-              yang digunakan untuk berinteraksi dengan project melalui user
+              yang akan digunakan untuk berinteraksi dengan project melalui user
               tersebut.
             </p>
             <pre style="background-color: #f0f0f0" class="p-2">
 $ openstack user create --project project-pos --password 'alfian123' alfian</pre
             >
             <p>
-              Setelah dibuat, kita akan menetapkan role user tersebut di
+              Setelah dibuat, kita akan menetapkan role kepada user tersebut di
               project.
             </p>
             <pre style="background-color: #f0f0f0" class="p-2">
@@ -232,7 +237,7 @@ $ openstack router create --external-gateway ex-net-pos router-pos
 $ openstack router add subnet router-pos in-subnet-pos</pre
             >
             <p>
-              Secara default, traffic yang masuk ke dalam instance ditolak.
+              Secara default, traffic yang masuk ke dalam instance akan ditolak.
               Tetapi kita bisa membuat security group yang mengatur izin dari
               traffic tersebut.
             </p>
@@ -258,8 +263,7 @@ $ openstack security group rule create --ingress --protocol tcp --dst-port 3306 
             <p>
               Untuk menentukan spesifik IP, kita bisa membuat port dari internal
               network yang akan digunakan instance web server dan database.
-              Tetapkan security group yang sudah dibuat kepada port yang akan
-              dibuat.
+              Tetapkan security group yang sudah dibuat pada port.
             </p>
             <pre style="background-color: #f0f0f0" class="p-2">
 $ openstack port create --network in-net-pos --fixed-ip subnet=in-subnet-pos,ip-address=172.16.4.110 --security-group secgroup-webpos port-web
@@ -282,7 +286,7 @@ $ openstack keypair create --public-key ~/.ssh/id_rsa.pub pos-key</pre
             >
             <p>
               Selanjutnya, kita akan meluncurkan atau membuat 2 instance untuk
-              web server dan database dengan resource yang sudah kita buat tadi.
+              web server dan database dengan resource yang sudah kita buat.
             </p>
             <pre style="background-color: #f0f0f0" class="p-2">
 $ openstack server create --image ubuntu-jammy --flavor medium-pos --nic port-id=port-web --security-group secgroup-webpos --key-name pos-key ubuntu-webpos
@@ -333,7 +337,7 @@ $ sudo -i
 # apt install mysql-server</pre
             >
             <p>
-              Kita akses MySQLnya menggunakan user root. Karena passwor dari
+              Kita akses MySQLnya menggunakan user root. Karena password dari
               user root belum kita setting, maka ketika disuruh memasukkan
               password langsung <kbd>enter</kbd> saja.
             </p>
@@ -398,6 +402,222 @@ bind-address    = 0.0.0.0</pre
             <pre style="background-color: #f0f0f0" class="p-2">
 $ ssh -o 'PubkeyAcceptedKeyTypes +ssh-rsa' ubuntu@20.4.4.20</pre
             >
+            <p>Selanjutnya, kita akan menginstal Nginx untuk web server.</p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+$ sudo -i
+# apt update
+# apt install nginx</pre
+            >
+            <p>
+              Pastinya aplikasi POS memiliki source code, jadi kita akan clone
+              dulu dari github kemudian kita copy ke lokasi document root dari
+              nginx.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# git clone https://github.com/sandinur157/tutorial-membuat-aplikasi-point-of-sales.git
+# cp -r tutorial-membuat-aplikasi-point-of-sales/* /var/www/html/
+# rm /var/www/html/index.nginx-debian.html</pre
+            >
+            <p>
+              Sebelum lebih lanjut, kita cek dulu apakah instance sudah bisa
+              terhubung dengan database yang ada dengan user dan password yang
+              sudah kita buat. yaitu user alfian dengan password alfian
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# apt install mysql-client-core-8.0
+# mysql -u alfian -h 172.16.4.120 -p
+mysql> exit</pre
+            >
+            <p>
+              Selanjutnya, kita akan menginstal PHP dan beberapa extension yang
+              diperlukan untuk composer dan aplikasi.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# apt install zip unzip libzip-dev php php-mysql php-curl php-gd php-intl php-xsl php-mbstring</pre
+            >
+            <span>Kegunaan package tersebut:</span>
+            <ul>
+              <li>zip, unzip, libzip-dev untuk keperluan arsip ZIP</li>
+              <li>php untuk bahasa yang digunakan aplikasi</li>
+              <li>php-mysql untuk konektivitas database MySQL dari PHP</li>
+              <li>php-curl untuk HTTP request melalui skrip PHP</li>
+              <li>php-gd untuk memanipulasi gambar dari skrip PHP</li>
+              <li>
+                php-intl untuk menangani data multi-bahasa dan spesifik wilayah
+                seperti memformat tanggal
+              </li>
+              <li>php-xsl untuk transformasi XSL ke dokumen XML</li>
+              <li>
+                php-mbstring untuk menangani string multibyte seperti set
+                karakter dan bahasa
+              </li>
+            </ul>
+            <p>
+              Setelah itu, kita akan menginstal dependesi aplikasi yang ada di
+              file composer.json dengan composer.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# cd /var/www/html
+# composer install
+# composer update</pre
+            >
+            <p>
+              Untuk menghubungkan php dengan mysql kita perlu mengonfigurasi
+              environmentnya sesuai dengan database kita.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# cp .env.example .env
+# vim .env
+DB_CONNECTION=mysql
+DB_HOST=172.16.4.120
+DB_PORT=3306
+DB_DATABASE=point_of_sales
+DB_USERNAME=alfian
+DB_PASSWORD=alfian</pre
+            >
+            <p>
+              Selanjutnya, kita perlu generate key untuk aplikasi, key tersebut
+              akan disimpan di file .env.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# php artisan key:generate</pre
+            >
+            <p>
+              Setelah itu, kita akan menjalankan migrasi database dari skrip
+              yang ada di source code ke database MySQL kita.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# php artisan migrate</pre
+            >
+            <p>
+              Terakhir, kita akan mengisi table database yang sudah kita migrasi
+              dengan sample yang ada di source code.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# php artisan db:seed</pre
+            >
+            <h4 style="font-weight: bold">Menjalankan Aplikasi dengan Nginx</h4>
+            <p>
+              Untuk menjalankan aplikasi PHP dengan Nginx kita akan menggunakan
+              PHP-FPM. Jadi pertama yang perlu dilakukan adalah menginstalnya.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# apt install php-fpm</pre
+            >
+            <p>
+              Selanjutnya, kita akan ubah ownership dari source code yang sudah
+              kita clone ke nginx atau www-data.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# chown -R www-data:www-data /var/www/html</pre
+            >
+            <p>
+              Kemudian kita akan mengonfigurasi nginx supaya bisa menjalankan
+              aplikasi PHP.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# vim /etc/nginx/sites-enabled/default</pre
+            >
+            <p>Pada file tersebut akan kita konfigurasi pada bagian server.</p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        
+        root /var/www/html/public;
+        
+        index index.php index.html index.htm index.nginx-debian.html;
+        
+        server_name 20.4.4.20;
+        
+        location / {
+                try_files $uri $uri/ /index.php?$query_string;
+        }
+        
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/run/php/php8.1-fpm.sock;
+        }
+        
+        location ~ /\.ht {
+                deny all;
+        }
+}</pre
+            >
+            <p>Penjelasan konfigurasi:</p>
+            <ul class="list-group mb-2">
+              <li class="list-group-item">
+                Bagian <b>Listen</b> adalah port dari nginx yang menerima HTTP
+                request. Terdapat 2 line yaitu untuk IPv4 dan IPv6.
+              </li>
+              <li class="list-group-item">
+                Bagian <b>Root</b> adalah lokasi file yang akan dilayani oleh
+                nginx.
+              </li>
+              <li class="list-group-item">
+                Bagian <b>Index</b> adalah file pertama dilayani ketika ada
+                request.
+              </li>
+              <li class="list-group-item">
+                Bagian <b>server_name</b> adalah domain aplikasi yang dilayani,
+                tapi karena saya tidak memiliki domain jadi bisa menggunakan IP
+                address
+              </li>
+              <li class="list-group-item">
+                Bagian <b>location /</b> adalah meneruskan semua string kueri ke
+                file index.php yang akan menangani data kueri.
+              </li>
+              <li class="list-group-item">
+                Bagian <b>location ~ \.php$</b> adalah menangani file PHP
+                menggunakan php-fpm dengan konfigurasi FastCGI dari snippets dan
+                meneruskan ke server php-fpm menggunakan socket.
+              </li>
+              <li class="list-group-item">
+                Bagian <b>location ~ /\.ht</b> adalah mengabaikan semua file
+                .httaccess yang digunakan apache.
+              </li>
+            </ul>
+            <p>Selanjutnya kita akan cek konfigurasi dari nginx.</p>
+            <pre style="background-color: #f0f0f0" class="p-2"># nginx -t</pre>
+            <p>
+              Untuk menetapkan konfigurasi, kita akan me-restart service nginx.
+            </p>
+            <pre style="background-color: #f0f0f0" class="p-2">
+# systemctl restart nginx</pre
+            >
+            <h4 style="font-weight: bold">Akses Aplikasi</h4>
+            <p>
+              Lakukan ssh tunneling dan akses ip dari floating ip melalui
+              browser.
+            </p>
+            <img
+              src="../assets/loginPOS.png"
+              alt="login POS"
+              class="mx-auto d-block img-fluid mb-2"
+            />
+            <p>Login menggunakan user yang sudah ada waktu seeding database.</p>
+            <span>User Administrator</span>
+            <ul>
+              <li>user: admin@gmail.com</li>
+              <li>password: 123</li>
+            </ul>
+            <span>User Kasir 1</span>
+            <ul>
+              <li>user: kasir1@gmail.com</li>
+              <li>password: 123</li>
+            </ul>
+            <p>Tampilan Dashboard Administrator:</p>
+            <img
+              src="../assets/dashboardAdmin.png"
+              alt="Dashboard Admin"
+              class="mx-auto d-block img-fluid mb-2"
+            />
+            <p>Tampilan Dashboard Kasir 1:</p>
+            <img
+              src="../assets/dashboardKasir.png"
+              alt="Dashboard Kasir 1"
+              class="mx-auto d-block img-fluid mb-2"
+            />
           </div>
           <div
             class="footer mx-5 mt-2 p-3 d-md-flex justify-content-md-center align-items-md-center text-center"
