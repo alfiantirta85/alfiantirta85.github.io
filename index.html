@@ -1,254 +1,428 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alfian Tirta</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="responsive.css" />
-    <link rel="shortcut icon" href="assets/logo.png" type="image/x-icon" />
-  </head>
-  <body>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alfian - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/logo.webp" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
     <header>
-      <a href="https://alfiantirta85.github.io/"
-        ><img id="logo" src="assets/logo.png"
-      /></a>
-      <nav id="navbar">
-        <ul>
-          <li>
-            <a href="#about">About</a>
-          </li>
-          <li>
-            <a href="#skill">Skills</a>
-          </li>
-          <li>
-            <a href="#certif">Certifications</a>
-          </li>
-          <li>
-            <a href="#contact">Contact</a>
-          </li>
-          <li>
-            <a href="https://blog-alfian.hashnode.dev/">Blog</a>
-          </li>
-        </ul>
-      </nav>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <a href="#" class="brand-link">
+                        <span class="brand-text">Portfolio</span>
+                        <div class="brand-dot"></div>
+                    </a>
+                </div>
+                
+                <ul class="nav-menu" id="nav-menu">
+                    <li class="nav-item">
+                        <a href="#tentang" class="nav-link">
+                            <span class="nav-text">About</span>
+                            <div class="nav-underline"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#tools" class="nav-link">
+                            <span class="nav-text">Skills</span>
+                            <div class="nav-underline"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#pengalaman" class="nav-link">
+                            <span class="nav-text">Experience</span>
+                            <div class="nav-underline"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#edukasi" class="nav-link">
+                            <span class="nav-text">Education</span>
+                            <div class="nav-underline"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#sertifikat" class="nav-link">
+                            <span class="nav-text">Certificates</span>
+                            <div class="nav-underline"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#kontak" class="nav-link">
+                            <span class="nav-text">Contact</span>
+                            <div class="nav-underline"></div>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://blog-alfian.hashnode.dev/" target="_blank" class="nav-link blog-link">
+                            <span class="nav-text">Blog</span>
+                            <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
     </header>
-    <section id="about">
-      <div class="foto">
-        <img src="assets/code.png" />
-      </div>
-      <div class="desc">
-        <p>Hi, I'm</p>
-        <h1>Muhammad Alfian Tirta Kusuma</h1>
-        <h2>Student</h2>
-        <p>
-          Enthusiastic and motivated self-learning in Information Technology.
-          Interested in exploring about Cloud Computing, DevOps, and Web
-          Development. Now I am looking for more experience in my field.
-        </p>
-      </div>
-    </section>
-    <section id="content">
-      <div id="skill">
-        <h2>Skills</h2>
-        <p>Here are some of my skills</p>
-        <div id="skills">
-          <div class="skill-box">
-            <img src="assets/linux.png" />
-            <h3>Linux</h3>
-            <p>1 year experience</p>
-          </div>
-          <div class="skill-box">
-            <img src="assets/docker.png" />
-            <h3>Docker</h3>
-            <p>6 month experience</p>
-          </div>
-          <div class="skill-box">
-            <img src="assets/ansible.png" />
-            <h3>Ansible</h3>
-            <p>6 month experience</p>
-          </div>
-          <div class="skill-box">
-            <img src="assets/aws.png" />
-            <h3>AWS</h3>
-            <p>1 month experience</p>
-          </div>
-          <div class="skill-box">
-            <img src="assets/ceph.png" />
-            <h3>Ceph</h3>
-            <p>1 month experience</p>
-          </div>
+
+    <section class="hero">
+        <div class="hero-background">
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
+            <div class="hero-particle"></div>
         </div>
-      </div>
-      <div id="certif">
-        <h2>Certifications</h2>
-        <p>Here are some of my certifications</p>
-        <div id="certifs">
-          <a
-            href="https://rhtapps.redhat.com/verify?certId=230-224-107"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/rhcsa.png" />
-            <h3>Red Hat Certified System Administrator</h3>
-            <p>Issued by Red Hat</p>
-          </a>
-          <a
-            href="https://freecodecamp.org/certification/alfian8/responsive-web-design"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/responsiveWebDesign.png" />
-            <h3>Responsive Web Design</h3>
-            <p>Issued by freeCodeCamp</p>
-          </a>
-          <a
-            href="https://sertiva.id/credential/fee3037b-d50e-4f64-ba8f-a92e501840a0"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/linuxSystemAdministration.png" />
-            <h3>Linux System Administration</h3>
-            <p>Issued by Adinusa</p>
-          </a>
-          <a
-            href="https://sertiva.id/credential/602c4f83-2ee8-4fa8-8be3-0a563debdd0e"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/dockerFundamental.png" />
-            <h3>Docker Fundamental</h3>
-            <p>Issued by Adinusa</p>
-          </a>
-          <a
-            href="https://sertiva.id/credential/10cabc61-34c7-4d5a-a8ef-04e612a38bca"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/automationAnsible.png" />
-            <h3>Automation with Ansible</h3>
-            <p>Issued by Adinusa</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/NVP79428RZR0"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/cloudPractitionerEssentials.png" />
-            <h3>Cloud Practitioner Essentials</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/EYX49G66RPDL"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/architectingOnAWS.png" />
-            <h3>Architecting on AWS</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/1OP8515L2PQK"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/dasar-dasarDevOps.png" />
-            <h3>Dasar-Dasar DevOps</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/MRZM4LMVNXYQ"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/jaringanKomputerUntukPemula.png" />
-            <h3>Jaringan Komputer untuk Pemula</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/72ZD8M8JQZYW"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/membuatAplikasiBack-End.png" />
-            <h3>Aplikasi Back-End untuk Pemula</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/EYX4Y77JWZDL"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/pemrogramanPengembangSoftware.png" />
-            <h3>Pemrograman Pengembang Software</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/81P272KJOZOY"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/logikaPemrograman.png" />
-            <h3>Programming Logic 101</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/N9ZO5EW4DPG5"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/visualisasiData.png" />
-            <h3>Dasar Visualisasi Data</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/07Z6GVO0WXQR"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/dasarPemrogramanJavaScript.png" />
-            <h3>Dasar Pemrograman JavaScript</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/EYX49G6W5PDL"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/pemrogramanDenganPython.png" />
-            <h3>Pemrograman Dengan Python</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
-          <a
-            href="https://www.dicoding.com/certificates/72ZD8DKG9ZYW"
-            target="_blank"
-            class="certif-box"
-          >
-            <img src="assets/pemrogramanDenganHaskell.png" />
-            <h3>Pemrograman Dengan Haskell</h3>
-            <p>Issued by Dicoding Indonesia</p>
-          </a>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Muhammad Alfian Tirta Kusuma</h1>
+                <p class="hero-subtitle">Cloud Engineer | Site Reliability Engineer | DevOps Engineer</p>
+                <div class="hero-buttons">
+                    <a href="#tentang" class="cta-button primary">See Portfolio</a>
+                    <a href="#kontak" class="cta-button secondary">Contact Me</a>
+                </div>
+            </div>
+            <div class="hero-scroll">
+                <div class="scroll-indicator">
+                    <span>Scroll Down</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
         </div>
-      </div>
     </section>
-    <footer id="contact">
-      <div class="sosial">
-        <a href="https://github.com/alfiantirta85" target="_blank">
-          <img src="assets/github.png" />
-        </a>
-        <a href="https://www.instagram.com/iya.n8/" target="_blank">
-          <img src="assets/ig.png" />
-        </a>
-        <a
-          href="https://www.linkedin.com/in/muhammad-alfian-tirta-kusuma"
-          target="_blank"
-        >
-          <img src="assets/linkedin.png" />
-        </a>
-      </div>
-      <div class="copyright">
-        <p>Copyright © 2023 Muhammad Alfian Tirta Kusuma. All Right Reserved</p>
-      </div>
+
+    <main>
+        <section id="tentang" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">About Me</h2>
+                <div class="about-content">
+                    <div class="profile-card fade-in">
+                        <div class="profile-image-container">
+                            <img src="./assets/DSCF4368.JPG" alt="Foto Profil" class="profile-image">
+                            <div class="profile-ring"></div>
+                        </div>
+                    </div>
+                    <div class="about-text fade-in">
+                        <p>Hello! I’m a Cloud, SRE, and DevOps Engineer with over a year of experience working in cloud infrastructure and operations. I’m passionate about building reliable systems and delivering technology solutions that make a real impact.</p>
+                        <p>I work across both private and public cloud platforms, containerization, and Kubernetes. I also enjoy automation through CI/CD pipelines and have experience with monitoring and observability the environment.</p>
+                        <p>I enjoy exploring new technologies, streamlining operational workflows, and contributing to scalable, secure, and resilient cloud systems.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tools" class="section tools">
+            <div class="container">
+                <h2 class="section-title fade-in">Skills</h2>
+                <div class="tools-grid">
+                    <div class="tool-card fade-in">
+                        <div class="tool-icon">☁︎</div>
+                        <h3>Cloud</h3>
+                        <div class="tool-list">
+                            <div class="tool-item">
+                                <span class="tool-name">Private Cloud</span>
+                                <span class="tool-level intermediate">2 year exp</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-name">Public Cloud</span>
+                                <span class="tool-level intermediate">1 year exp</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-card fade-in">
+                        <div class="tool-icon">🛠️</div>
+                        <h3>SRE</h3>
+                        <div class="tool-list">
+                            <div class="tool-item">
+                                <span class="tool-name">Linux Systems</span>
+                                <span class="tool-level intermediate">3 year exp</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-name">Troubleshooting</span>
+                                <span class="tool-level intermediate">2 year exp</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-name">System Monitoring</span>
+                                <span class="tool-level intermediate">2 year exp</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-name">Harden Systems</span>
+                                <span class="tool-level intermediate">1 year exp</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tool-card fade-in">
+                        <div class="tool-icon">♾️</div>
+                        <h3>DevOps</h3>
+                        <div class="tool-list">
+                            <div class="tool-item">
+                                <span class="tool-name">CI/CD pipelines</span>
+                                <span class="tool-level intermediate">2 year exp</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-name">Containerization</span>
+                                <span class="tool-level intermediate">2 year exp</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-name">Kubenetes</span>
+                                <span class="tool-level intermediate">1 year exp</span>
+                            </div>
+                            <div class="tool-item">
+                                <span class="tool-name">DevOps Tools</span>
+                                <span class="tool-level intermediate">1 year exp</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="pengalaman" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Work Experience</h2>
+                <div class="experience-timeline">
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Jun 2024 - Present</div>
+                            <h3>Jr. Cloud Ops Engineer</h3>
+                            <h4>PT. Boer Technology</h4>
+                            <p>Support and manage project maintenance support and managed service for Btech clients. Respond to customer service issues promptly. Develop customer needs and goals in a cloud environment (Openstack, Ceph, Kubernetes,
+AWS, GCP, and Other Environment). Research and implement cloud technology solutions. Also support and manage managed service for Btech internal team such as Adinusa, Btech Website, Portal Btech, ERP, Data Platform, etc).</p>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">Linux</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Ansible</span>
+                                <span class="skill-tag">Prometheus</span>
+                                <span class="skill-tag">Loki</span>
+                                <span class="skill-tag">Alloy</span>
+                                <span class="skill-tag">Grafana</span>
+                                <span class="skill-tag">OpenStack</span>
+                                <span class="skill-tag">Ceph</span>
+                                <span class="skill-tag">GitLab</span>
+                                <span class="skill-tag">Harbor</span>
+                                <span class="skill-tag">Komodo</span>
+                                <span class="skill-tag">RKE2</span>
+                                <span class="skill-tag">AWS</span>
+                                <span class="skill-tag">GCP</span>
+                                <span class="skill-tag">GlusterFS</span>
+                                <span class="skill-tag">Pangolin</span>
+                                <span class="skill-tag">Vaultwarden</span>
+                                <span class="skill-tag">Internal Server</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item fade-in">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">Nov 2023 - Mar 2024</div>
+                            <h3>Student Internship</h3>
+                            <h4>PT. Boer Technology</h4>
+                            <p>Learn more about Cloud Technology and DevOps, such as: Managed and configured linux systems. Managed containers and deploy containerized applications with docker.
+Automated administrative tasks on multiple nodes with ansible. Managed distributed storage with ceph and troubleshooting ceph problems. Managed cloud resources with openstack and deployed applications on openstack
+instances. Integrated ceph as storage in openstack. Automated deployment, scaling, and managed applications on container orchestration with kubernetes. Implemented CI/CD to deploy applications with gitlab or github. Searched and analyzed logs with elastic stacks (elasticsearch, logstash, kibana, and beats). Monitoring systems, containers, and services with prometheus and grafana.</p>
+                            <div class="timeline-skills">
+                                <span class="skill-tag">Linux</span>
+                                <span class="skill-tag">Docker</span>
+                                <span class="skill-tag">Ansible</span>
+                                <span class="skill-tag">OpenStack</span>
+                                <span class="skill-tag">Ceph</span>
+                                <span class="skill-tag">Kubernetes</span>
+                                <span class="skill-tag">GitHub CI/CD</span>
+                                <span class="skill-tag">GitLab CI/CD</span>
+                                <span class="skill-tag">Prometheus</span>
+                                <span class="skill-tag">Loki</span>
+                                <span class="skill-tag">Grafana</span>
+                                <span class="skill-tag">Elastic Statck (ELK)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="edukasi" class="section education">
+            <div class="container">
+                <h2 class="section-title fade-in">Education</h2>
+                <div class="education-grid">
+                    <div class="education-card fade-in">
+                        <div class="education-icon">🎓</div>
+                        <div class="education-content">
+                            <h3>Siber Asia University</h3>
+                            <h4>Informatics</h4>
+                            <div class="education-date">2025 - Present</div>
+                            <p>Focus Study: Data Science</p>
+                        </div>
+                    </div>
+                    
+                    <div class="education-card fade-in">
+                        <div class="education-icon">📚</div>
+                        <div class="education-content">
+                            <h3>SMK Negeri 1 Adiwerna</h3>
+                            <h4>Computer and Network Engineering</h4>
+                            <div class="education-date">2021 - 2024</div>
+                            <p>Focus Study: Infrastructure, Cloud DevOps, Web Programming</p>
+                            <div class="education-achievements">
+                                <span class="achievement">3rd Place Cloud Computing - LKS District</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="sertifikat" class="section">
+            <div class="container">
+                <h2 class="section-title fade-in">Certificates</h2>
+                <div class="certificates-grid">
+                    <div class="certificate-card fade-in">
+                        <div class="certificate-image">
+                            <img src="./assets/rhcsa.png" alt="Red Hat Certified System Administrator">
+                            <div class="certificate-badge">Red Hat</div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Red Hat Certified System Administrator (RHCSA)</h3>
+                            <p>Red Hat • 2023 - 2027</p>
+                            <a href="https://www.credly.com/badges/6eb614f8-abc9-4783-a0d9-06e5bc3bfb28/public_url" target="_blank" class="certificate-link">See Certificate →</a>
+                        </div>
+                    </div>
+                    <div class="certificate-card fade-in">
+                        <div class="certificate-image">
+                            <img src="./assets/rhcsc.png" alt="Red Hat Certified Specialist in Containers">
+                            <div class="certificate-badge">Red Hat</div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Red Hat Certified Specialist in Containers</h3>
+                            <p>Red Hat • 2024 - 2027</p>
+                            <a href="https://www.credly.com/badges/b9307616-667a-40d6-a657-eff7eaa90770/public_url" target="_blank" class="certificate-link">See Certificate →</a>
+                        </div>
+                    </div>
+                    <div class="certificate-card fade-in">
+                        <div class="certificate-image">
+                            <img src="./assets/rhce.png" alt="Red Hat Certified Engineer">
+                            <div class="certificate-badge">Red Hat</div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Red Hat Certified Engineer (RHCE)</h3>
+                            <p>Red Hat • 2024 - 2027</p>
+                            <a href="https://www.credly.com/badges/6e23157f-1106-4739-87ba-7b700d4210c1/public_url" target="_blank" class="certificate-link">See Certificate →</a>
+                        </div>
+                    </div>
+                    <div class="certificate-card fade-in">
+                        <div class="certificate-image">
+                            <img src="./assets/web-bnsp.jpg" alt="Red Hat Certified Engineer">
+                            <div class="certificate-badge">BNSP</div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Junior Web Programmer</h3>
+                            <p>Badan Nasional Sertifikasi Profesi • 2023 - 2026</p>
+                            <a href="https://drive.google.com/file/d/1Jc99vNxIbPEqqLy42JemCas4wPtBxA0H/view?usp=sharing" target="_blank" class="certificate-link">See Certificate →</a>
+                        </div>
+                    </div>
+                    <div class="certificate-card fade-in">
+                        <div class="certificate-image">
+                            <img src="./assets/support-bnsp.jpg" alt="Red Hat Certified Engineer">
+                            <div class="certificate-badge">BNSP</div>
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Junior Technical Support</h3>
+                            <p>Badan Nasional Sertifikasi Profesi • 2024 - 2027</p>
+                            <a href="https://drive.google.com/file/d/1J8c0j5-YE5VYpWmOfR2-CdQZ1gSp_zll/view?usp=sharing" target="_blank" class="certificate-link">See Certificate →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="kontak" class="section contact">
+            <div class="container">
+                <h2 class="section-title fade-in">Contact</h2>
+                <div class="contact-grid">
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <a href="mailto:alfiantirta85@gmail.com">alfiantirta85@gmail.com</a>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">💼</div>
+                        <h3>LinkedIn</h3>
+                        <a href="https://linkedin.com/in/muhammad-alfian-tirta-kusuma" target="_blank">linkedin.com/in/muhammad-alfian-tirta-kusuma</a>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">🌐</div>
+                        <h3>Instagram</h3>
+                        <a href="https://instagram.com/iya.n8" target="_blank">instagram.com/iya.n8</a> </>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">💻</div>
+                        <h3>GitHub</h3>
+                        <a href="https://github.com/alfiantirta85" target="_blank">github.com/alfiantirta85</a>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">📍</div>
+                        <h3>Location</h3>
+                        <span>Central Java, Indonesia</span>
+                    </div>
+                    <div class="contact-item fade-in">
+                        <div class="contact-icon">⚙️</div>
+                        <h3>GitLab</h3>
+                        <a href="https://gitlab.com/alfian08" target="_blank">gitlab.com/alfian08</a> </>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>Portfolio</h3>
+                    <p>Thank you for visiting my website!</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Navigation</h4>
+                        <ul>
+                            <li><a href="#tentang">About</a></li>
+                            <li><a href="#tools">Skills</a></li>
+                            <li><a href="#pengalaman">Experience</a></li>
+                            <li><a href="#edukasi">Education</a></li>
+                            <li><a href="#sertifikat">Certificates</a></li>
+                            <li><a href="#kontak">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>External</h4>
+                        <ul>
+                            <li><a href="https://blog-alfian.hashnode.dev" target="_blank">Blog</a></li>
+                            <li><a href="https://linkedin.com/in/muhammad-alfian-tirta-kusuma" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://github.com/alfiantirta85" target="_blank">GitHub</a></li>
+                            <li><a href="https://gitlab.com/alfian08" target="_blank">GitLab</a></li>
+                            <li><a href="https://instagram.com/iya.n8" target="_blank">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year">2025</span> Muhammad Alfian Tirta Kusuma. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
-  </body>
+
+    <script src="script.js"></script>
+</body>
 </html>
