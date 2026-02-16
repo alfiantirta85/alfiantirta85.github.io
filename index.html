@@ -1,499 +1,754 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alfian - Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Muhammad Alfian Tirta Kusuma - Cloud Engineer, Site Reliability Engineer, and DevOps Engineer specializing in cloud infrastructure, Kubernetes, and CI/CD automation.">
+    <meta name="author" content="Muhammad Alfian Tirta Kusuma">
     <link rel="shortcut icon" href="assets/logo.webp" type="image/x-icon" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Alfian - Cloud | SRE | DevOps">
+    <meta property="og:description" content="Cloud Engineer | SRE | DevOps Engineer specializing in cloud infrastructure and system reliability">
+    <meta property="og:url" content="https://alfiantirta85.github.io/">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Alfian - Cloud | SRE | DevOps">
+    <meta name="twitter:description" content="Cloud Engineer | SRE | DevOps Engineer specializing in cloud infrastructure and system reliability">
+    
+    <title>Alfian - Cloud | SRE | DevOps</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-brand">
-                    <a href="#" class="brand-link">
-                        <span class="brand-text">Portfolio</span>
-                        <div class="brand-dot"></div>
-                    </a>
-                </div>
-                
-                <ul class="nav-menu" id="nav-menu">
-                    <li class="nav-item">
-                        <a href="#tentang" class="nav-link">
-                            <span class="nav-text">About</span>
-                            <div class="nav-underline"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#tools" class="nav-link">
-                            <span class="nav-text">Skills</span>
-                            <div class="nav-underline"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#pengalaman" class="nav-link">
-                            <span class="nav-text">Experience</span>
-                            <div class="nav-underline"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#edukasi" class="nav-link">
-                            <span class="nav-text">Education</span>
-                            <div class="nav-underline"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#sertifikat" class="nav-link">
-                            <span class="nav-text">Certificates</span>
-                            <div class="nav-underline"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#kontak" class="nav-link">
-                            <span class="nav-text">Contact</span>
-                            <div class="nav-underline"></div>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="https://blog-alfian.hashnode.dev/" target="_blank" class="nav-link blog-link">
-                            <span class="nav-text">Blog</span>
-                            <svg class="external-icon" width="14" height="14" viewBox="0 0 24 24" fill="none">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <polyline points="15,3 21,3 21,9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <line x1="10" y1="14" x2="21" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </a>
-                    </li>
-                </ul>
-
-                <div class="nav-toggle" id="nav-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+    <!-- Particle Background -->
+    <canvas id="particles"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="terminal-prompt">$</span> alfian<span class="blink">_</span>
             </div>
-        </nav>
-    </header>
-
-    <section class="hero">
-        <div class="hero-background">
-            <div class="hero-particle"></div>
-            <div class="hero-particle"></div>
-            <div class="hero-particle"></div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#certs" class="nav-link">Certs</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="https://blog-alfian.hashnode.dev/" target="_blank" class="nav-link">Blog</a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon sun">☀️</span>
+                <span class="theme-icon moon">🌙</span>
+            </button>
+            <button class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Muhammad Alfian Tirta Kusuma</h1>
-                <p class="hero-subtitle">Cloud Engineer | Site Reliability Engineer | DevOps Engineer</p>
-                <div class="hero-buttons">
-                    <a href="#tentang" class="cta-button primary">See Portfolio</a>
-                    <a href="#kontak" class="cta-button secondary">Contact Me</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-buttons">
+                        <span class="terminal-button close"></span>
+                        <span class="terminal-button minimize"></span>
+                        <span class="terminal-button maximize"></span>
+                    </div>
+                    <div class="terminal-title">alfian@cloudops:~</div>
+                </div>
+                <div class="terminal-body">
+                    <div class="terminal-line">
+                        <span class="terminal-prompt">alfian@cloudops</span>:<span class="terminal-path">~</span>$ whoami
+                    </div>
+                    <div class="terminal-output" id="terminalOutput"></div>
                 </div>
             </div>
-            <div class="hero-scroll">
-                <div class="scroll-indicator">
-                    <span>Scroll Down</span>
-                    <div class="scroll-arrow"></div>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary">
+                    <span>$ ./contact.sh</span>
+                    <div class="btn-glow"></div>
+                </a>
+                <a href="#about" class="btn btn-secondary">
+                    <span>$ cat about.md</span>
+                </a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow-container">
+                <span class="arrow"></span>
+                <span class="arrow"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">$ cat about.md</span>
+                <h2 class="section-title">About<span class="text-accent">.</span>Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-image" data-animate>
+                    <div class="image-container">
+                        <img src="./assets/profile.JPG" alt="Muhammad Alfian Tirta Kusuma">
+                        <div class="image-frame"></div>
+                    </div>
+
+                </div>
+                <div class="about-text" data-animate>
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span>about.json</span>
+                        </div>
+                        <pre class="code-content">
+{
+  "name": "Muhammad Alfian Tirta Kusuma",
+  "role": "Cloud & DevOps Engineer",
+  "location": "Central Java, Indonesia",
+  "experience": "1+ years",
+  "focus": [
+    "Cloud Infrastructure",
+    "Container Orchestration",
+    "CI/CD Automation",
+    "System Reliability"
+  ]
+}</pre>
+                    </div>
+                    <p class="about-description">
+                        I'm passionate about building reliable systems and delivering technology solutions that make a real impact. Working across private and public cloud platforms, containerization, and Kubernetes, I enjoy automation through CI/CD pipelines and have hands-on experience with monitoring and observability.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">1+</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">6</span>
+                            <span class="stat-label">Certifications</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">30+</span>
+                            <span class="stat-label">Technologies</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <main>
-        <section id="tentang" class="section">
-            <div class="container">
-                <h2 class="section-title fade-in">About Me</h2>
-                <div class="about-content">
-                    <div class="profile-card fade-in">
-                        <div class="profile-image-container">
-                            <img src="./assets/DSCF4368.JPG" alt="Foto Profil" class="profile-image">
-                            <div class="profile-ring"></div>
-                        </div>
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">$ ls -la /skills/</span>
+                <h2 class="section-title">Technical<span class="text-accent">.</span>Stack</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category" data-animate>
+                    <div class="skill-header">
+                        <div class="skill-icon">☁️</div>
+                        <h3>Cloud Platforms</h3>
                     </div>
-                    <div class="about-text fade-in">
-                        <p>Hello! I’m a Cloud, SRE, and DevOps Engineer with over a year of experience working in cloud infrastructure and operations. I’m passionate about building reliable systems and delivering technology solutions that make a real impact.</p>
-                        <p>I work across both private and public cloud platforms, containerization, and Kubernetes. I also enjoy automation through CI/CD pipelines and have experience with monitoring and observability the environment.</p>
-                        <p>I enjoy exploring new technologies, streamlining operational workflows, and contributing to scalable, secure, and resilient cloud systems.</p>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Private Cloud</span>
+                            <span class="skill-years">2 years</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Public Cloud</span>
+                            <span class="skill-years">1 year</span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <section id="tools" class="section tools">
-            <div class="container">
-                <h2 class="section-title fade-in">Skills</h2>
-                <div class="tools-grid">
-                    <div class="tool-card fade-in">
-                        <div class="tool-icon">☁︎</div>
-                        <h3>Cloud</h3>
-                        <div class="tool-list">
-                            <div class="tool-item">
-                                <span class="tool-name">Private Cloud</span>
-                                <span class="tool-level intermediate">2 year exp</span>
-                            </div>
-                            <div class="tool-item">
-                                <span class="tool-name">Public Cloud</span>
-                                <span class="tool-level intermediate">1 year exp</span>
-                            </div>
+                <div class="skill-category" data-animate>
+                    <div class="skill-header">
+                        <div class="skill-icon">🛠️</div>
+                        <h3>SRE & Operations</h3>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Linux Systems</span>
+                            <span class="skill-years">3 years</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Troubleshooting</span>
+                            <span class="skill-years">2 years</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Monitoring</span>
+                            <span class="skill-years">2 years</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Harden Systems</span>
+                            <span class="skill-years">1 years</span>
                         </div>
                     </div>
-                    <div class="tool-card fade-in">
-                        <div class="tool-icon">🛠️</div>
-                        <h3>SRE</h3>
-                        <div class="tool-list">
-                            <div class="tool-item">
-                                <span class="tool-name">Linux Systems</span>
-                                <span class="tool-level intermediate">3 year exp</span>
-                            </div>
-                            <div class="tool-item">
-                                <span class="tool-name">Troubleshooting</span>
-                                <span class="tool-level intermediate">2 year exp</span>
-                            </div>
-                            <div class="tool-item">
-                                <span class="tool-name">System Monitoring</span>
-                                <span class="tool-level intermediate">2 year exp</span>
-                            </div>
-                            <div class="tool-item">
-                                <span class="tool-name">Harden Systems</span>
-                                <span class="tool-level intermediate">1 year exp</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tool-card fade-in">
-                        <div class="tool-icon">♾️</div>
+                </div>
+
+                <div class="skill-category" data-animate>
+                    <div class="skill-header">
+                        <div class="skill-icon">♾️</div>
                         <h3>DevOps</h3>
-                        <div class="tool-list">
-                            <div class="tool-item">
-                                <span class="tool-name">CI/CD pipelines</span>
-                                <span class="tool-level intermediate">2 year exp</span>
-                            </div>
-                            <div class="tool-item">
-                                <span class="tool-name">Containerization</span>
-                                <span class="tool-level intermediate">2 year exp</span>
-                            </div>
-                            <div class="tool-item">
-                                <span class="tool-name">Kubenetes</span>
-                                <span class="tool-level intermediate">1 year exp</span>
-                            </div>
-                            <div class="tool-item">
-                                <span class="tool-name">DevOps Tools</span>
-                                <span class="tool-level intermediate">1 year exp</span>
-                            </div>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <span class="skill-name">CI/CD Pipelines</span>
+                            <span class="skill-years">2 years</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Containerization</span>
+                            <span class="skill-years">2 years</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Kubernetes</span>
+                            <span class="skill-years">1 year</span>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">DevOps Tools</span>
+                            <span class="skill-years">1 year</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+    </section>
 
-        <section id="pengalaman" class="section">
-            <div class="container">
-                <h2 class="section-title fade-in">Work Experience</h2>
-                <div class="experience-timeline">
-                    
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">Jun 2024 - Present</div>
-                            <h3>Jr. Cloud Ops Engineer</h3>
-                            <h4>PT. Boer Technology</h4>
-                            <p>Support and manage project maintenance support and managed service for Btech clients (PLN, BP-Batam, Pupuk Indonesia, etc). Respond to customer service issues promptly. Develop customer needs and goals in a cloud environment (Openstack, Ceph, Kubernetes,
-AWS, GCP, and Other Environment). Research and implement cloud technology solutions. Also support and manage project managed service for Btech internal team such as Adinusa, Btech Website, Portal Btech, ERP, Data Platform, etc.</p>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Linux</span>
-                                <span class="skill-tag">Docker</span>
-                                <span class="skill-tag">Ansible</span>
-                                <span class="skill-tag">Prometheus</span>
-                                <span class="skill-tag">Loki</span>
-                                <span class="skill-tag">Alloy</span>
-                                <span class="skill-tag">Grafana</span>
-                                <span class="skill-tag">OpenStack</span>
-                                <span class="skill-tag">Ceph</span>
-                                <span class="skill-tag">GitLab</span>
-                                <span class="skill-tag">Harbor</span>
-                                <span class="skill-tag">Komodo</span>
-                                <span class="skill-tag">RKE2</span>
-                                <span class="skill-tag">AWS</span>
-                                <span class="skill-tag">GCP</span>
-                                <span class="skill-tag">GlusterFS</span>
-                                <span class="skill-tag">Pangolin</span>
-                                <span class="skill-tag">Vaultwarden</span>
-                            </div>
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">$ git log --all</span>
+                <h2 class="section-title">Work<span class="text-accent">.</span>Experience</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-date">Jun 2024 - Present</span>
+                            <span class="timeline-status">Active</span>
+                        </div>
+                        <h3 class="timeline-title">Jr. Cloud Engineer</h3>
+                        <h4 class="timeline-company">PT. Boer Technology</h4>
+                        <p class="timeline-description">
+                            Support and manage infrastructure for multiple client projects including PLN, BP-Batam, Pupuk Indonesia, PLTI, ITB, and Cartenz. Responsibilities include troubleshooting cloud clusters, maintaining CI/CD pipelines, managing storage systems, implementing monitoring solutions, and delivering monthly operational reports. Additionally, manage internal Btech infrastructure including DevOps tools, security hardening, and disaster recovery systems.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Linux</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Ansible</span>
+                            <span class="tag">Alloy</span>
+                            <span class="tag">Prometheus</span>
+                            <span class="tag">Loki</span>
+                            <span class="tag">Grafana</span>
+                            <span class="tag">Kuma</span>
+                            <span class="tag">OpenStack</span>
+                            <span class="tag">Ceph</span>
+                            <span class="tag">RKE2</span>
+                            <span class="tag">RHOSP</span>
+                            <span class="tag">Rancher</span>
+                            <span class="tag">Proxmox</span>
+                            <span class="tag">AWS</span>
+                            <span class="tag">GCP</span>
+                            <span class="tag">GlusterFS</span>
+                            <span class="tag">GitLab</span>
+                            <span class="tag">Harbor</span>
+                            <span class="tag">Vault</span>
+                            <span class="tag">OpenBao</span>
+                            <span class="tag">Vault Secret Operator</span>
+                            <span class="tag">External Secret Operator</span>
+                            <span class="tag">ArgoCD</span>
+                            <span class="tag">Komodo</span>
+                            <span class="tag">Azure DevOps</span>
+                            <span class="tag">Semantic Versioning</span>
+                            <span class="tag">Pangolin</span>
+                            <span class="tag">Bookstack</span>
+                            <span class="tag">Vaultwarden</span>
+                            <span class="tag">Wazuh</span>
+                            <span class="tag">Terraform</span>
                         </div>
                     </div>
-                    
-                    <div class="timeline-item fade-in">
-                        <div class="timeline-dot"></div>
-                        <div class="timeline-content">
-                            <div class="timeline-date">Nov 2023 - Mar 2024</div>
-                            <h3>Student Internship</h3>
-                            <h4>PT. Boer Technology</h4>
-                            <p>Learn more about Cloud Technology and DevOps, such as: Managed and configured linux systems. Managed containers and deploy containerized applications with docker.
-Automated administrative tasks on multiple nodes with ansible. Managed distributed storage with ceph and troubleshooting ceph problems. Managed cloud resources with openstack and deployed applications on openstack
-instances. Integrated ceph as storage in openstack. Automated deployment, scaling, and managed applications on container orchestration with kubernetes. Implemented CI/CD to deploy applications with gitlab or github. Searched and analyzed logs with elastic stacks (elasticsearch, logstash, kibana, and beats). Monitoring systems, containers, and services with prometheus and grafana.</p>
-                            <div class="timeline-skills">
-                                <span class="skill-tag">Linux</span>
-                                <span class="skill-tag">Docker</span>
-                                <span class="skill-tag">Ansible</span>
-                                <span class="skill-tag">OpenStack</span>
-                                <span class="skill-tag">Ceph</span>
-                                <span class="skill-tag">Kubernetes</span>
-                                <span class="skill-tag">GitHub CI/CD</span>
-                                <span class="skill-tag">GitLab CI/CD</span>
-                                <span class="skill-tag">Prometheus</span>
-                                <span class="skill-tag">Loki</span>
-                                <span class="skill-tag">Grafana</span>
-                                <span class="skill-tag">Elastic Statck (ELK)</span>
-                            </div>
+                </div>
+
+                <div class="timeline-item" data-animate>
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <span class="timeline-date">Nov 2023 - Mar 2024</span>
+                            <span class="timeline-status completed">Completed</span>
+                        </div>
+                        <h3 class="timeline-title">Student Internship</h3>
+                        <h4 class="timeline-company">PT. Boer Technology</h4>
+                        <p class="timeline-description">
+                            Comprehensive learning in Cloud Technology and DevOps. Managed Linux systems, containerized applications with Docker, automated tasks with Ansible, managed distributed storage with Ceph, deployed applications on OpenStack, implemented CI/CD pipelines, and monitored systems with Prometheus and Grafana.
+                        </p>
+                        <div class="timeline-tags">
+                            <span class="tag">Linux</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">Ansible</span>
+                            <span class="tag">Ceph</span>
+                            <span class="tag">OpenStack</span>
+                            <span class="tag">Kubernetes</span>
+                            <span class="tag">GitHub CI/CD</span>
+                            <span class="tag">GitLab CI/CD</span>
+                            <span class="tag">Prometheus</span>
+                            <span class="tag">Loki</span>
+                            <span class="tag">Grafana</span>
+                            <span class="tag">Elastic Stack (ELK)</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section id="edukasi" class="section education">
-            <div class="container">
-                <h2 class="section-title fade-in">Education</h2>
+            <div class="education-section" data-animate>
+                <h3 class="subsection-title">$ cat /etc/education</h3>
                 <div class="education-grid">
-                    <div class="education-card fade-in">
+                    <div class="education-card">
                         <div class="education-icon">🎓</div>
                         <div class="education-content">
-                            <h3>Siber Asia University</h3>
-                            <h4>Informatics</h4>
-                            <div class="education-date">2025 - Present</div>
-                            <p>Focus Study: Data Science</p>
+                            <h4>Siber Asia University</h4>
+                            <p class="education-degree">Informatics</p>
+                            <span class="education-year">2025 - Present</span>
                         </div>
                     </div>
-                    
-                    <div class="education-card fade-in">
+                    <div class="education-card">
                         <div class="education-icon">📚</div>
                         <div class="education-content">
-                            <h3>SMK Negeri 1 Adiwerna</h3>
-                            <h4>Computer and Network Engineering</h4>
-                            <div class="education-date">2021 - 2024</div>
-                            <p>Focus Study: Infrastructure, Cloud DevOps, Web Programming</p>
-                            <div class="education-achievements">
-                                <span class="achievement">3rd Place Cloud Computing - LKS District</span>
+                            <h4>SMK Negeri 1 Adiwerna</h4>
+                            <p class="education-degree">Computer and Network Engineering</p>
+                            <span class="education-year">2021 - 2024</span>
+                            <span class="education-achievement">🏆 3rd Place Cloud Computing - LKS District</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">$ ls -la /portfolio/projects/</span>
+                <h2 class="section-title">Featured<span class="text-accent">.</span>Projects</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-animate>
+                    <div class="project-header">
+                        <div class="project-icon">🛠️</div>
+                        <span class="project-tag">SRE</span>
+                    </div>
+                    <h3 class="project-title">Managed Service Btech Internal Team</h3>
+                    <p class="project-description">Managed internal infrastructure including disaster recovery, DevOps tools, VM hardening, security updates, and CI/CD pipelines for systemd and containerized environments.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Linux System</span>
+                        <span class="tech-tag">Harden System</span>
+                        <span class="tech-tag">Monitoring</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-context">PT. Boer Technology</span>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-animate>
+                    <div class="project-header">
+                        <div class="project-icon">♾️</div>
+                        <span class="project-tag">DevOps</span>
+                    </div>
+                    <h3 class="project-title">Managed Service Btech x PLN</h3>
+                    <p class="project-description">Managed production Kubernetes clusters including troubleshooting, upgrades, monitoring, CI/CD pipelines, DevOps tooling, and monthly reporting.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">OpenStack</span>
+                        <span class="tech-tag">Ceph</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-context">PT. Boer Technology</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-animate>
+                    <div class="project-header">
+                        <div class="project-icon">☁️</div>
+                        <span class="project-tag">Private Cloud</span>
+                    </div>
+                    <h3 class="project-title">Maintenance Service Btech x Pupuk Indonesia</h3>
+                    <p class="project-description">Maintained private cloud cluster infrastructure with troubleshooting and monitoring cluster, troubleshooting and recover instance, and monthly resource reporting.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">OpenStack</span>
+                        <span class="tech-tag">Ceph</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-context">PT. Boer Technology</span>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-animate>
+                    <div class="project-header">
+                        <div class="project-icon">☁️</div>
+                        <span class="project-tag">Private Cloud</span>
+                    </div>
+                    <h3 class="project-title">Maintenance Service Btech x BP-Batam</h3>
+                    <p class="project-description">Maintained private cloud and glusterfs storage clusters with troubleshooting, monitoring, storage cluster upgrades, operational research, and monthly resource reporting.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">OpenStack</span>
+                        <span class="tech-tag">Ceph</span>
+                        <span class="tech-tag">GlusterFS</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-context">PT. Boer Technology</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-animate>
+                    <div class="project-header">
+                        <div class="project-icon">☁️</div>
+                        <span class="project-tag">Private Cloud</span>
+                    </div>
+                    <h3 class="project-title">Maintenance Service Btech x ITB</h3>
+                    <p class="project-description">Maintained private cloud cluster operations including troubleshooting and monitoring cluster, troubleshooting and recover instance, operational research, and monthly resource reporting.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">OpenStack</span>
+                        <span class="tech-tag">Ceph</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-context">PT. Boer Technology</span>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-animate>
+                    <div class="project-header">
+                        <div class="project-icon">☁️</div>
+                        <span class="project-tag">Private Cloud</span>
+                    </div>
+                    <h3 class="project-title">Managed Service Btech x PLTI</h3>
+                    <p class="project-description">Administered Proxmox virtualization hosts, implemented database backups, and managed linux system infrastructure</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Proxmox</span>
+                        <span class="tech-tag">Linux Systems</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-context">PT. Boer Technology</span>
+                    </div>
+                </div>
+
+                <div class="project-card" data-animate>
+                    <div class="project-header">
+                        <div class="project-icon">☁️</div>
+                        <span class="project-tag">Public Cloud</span>
+                    </div>
+                    <h3 class="project-title">Managed Service Btech x Cartenz</h3>
+                    <p class="project-description">Managed public cloud infrastructure including instance troubleshooting resources and monthly performance reporting for client cloud environments.</p>
+                    <div class="project-tech">
+                        <span class="tech-tag">GCP</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Alibaba Cloud</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-context">PT. Boer Technology</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses & Training Section -->
+    <section id="courses" class="courses">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">$ cat /training/courses.log</span>
+                <h2 class="section-title">Courses<span class="text-accent">&</span>Training</h2>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Google</div>
+                    <h3 class="course-title">Get Certified Program Edition 3</h3>
+                    <span class="course-year">2025</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Adinusa</div>
+                    <h3 class="course-title">Monitoring with Prometheus</h3>
+                    <span class="course-year">2024</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Adinusa</div>
+                    <h3 class="course-title">Getting Started with ELK Stack</h3>
+                    <span class="course-year">2024</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Adinusa</div>
+                    <h3 class="course-title">GitLab Administration</h3>
+                    <span class="course-year">2024</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Adinusa</div>
+                    <h3 class="course-title">Kubernetes Administration</h3>
+                    <span class="course-year">2024</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Adinusa</div>
+                    <h3 class="course-title">OpenStack Administration Multi Node</h3>
+                    <span class="course-year">2024</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Adinusa</div>
+                    <h3 class="course-title">Ceph Administration</h3>
+                    <span class="course-year">2024</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Adinusa</div>
+                    <h3 class="course-title">Automation with Ansible</h3>
+                    <span class="course-year">2023</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Adinusa</div>
+                    <h3 class="course-title">Docker Fundamental</h3>
+                    <span class="course-year">2023</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Adinusa</div>
+                    <h3 class="course-title">Linux System Administration</h3>
+                    <span class="course-year">2023</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Red Hat</div>
+                    <h3 class="course-title">Red Hat Academy - Program Learner</h3>
+                    <span class="course-year">2024</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Dicoding</div>
+                    <h3 class="course-title">Architecting on AWS</h3>
+                    <span class="course-year">2023</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Dicoding</div>
+                    <h3 class="course-title">Cloud Practitioner Essentials</h3>
+                    <span class="course-year">2022</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">Telkom DigiUp</div>
+                    <h3 class="course-title">Web Programmer Python</h3>
+                    <span class="course-year">2023</span>
+                </div>
+                <div class="course-card" data-animate>
+                    <div class="course-provider">freeCodeCamp</div>
+                    <h3 class="course-title">Responsive Web Design</h3>
+                    <span class="course-year">2022</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certs" class="certifications">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">$ ls /certifications/*.pdf</span>
+                <h2 class="section-title">Certifications<span class="text-accent">.</span>Badges</h2>
+            </div>
+            <div class="certs-grid">
+                <div class="cert-card" data-animate>
+                    <div class="cert-badge">
+                        <img src="./assets/gcc-ace.png" alt="RHCE">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-issuer">Google Cloud</span>
+                        <h3 class="cert-title">Google Cloud Certified Associate Cloud Engineer</h3>
+                        <p class="cert-code">GCC-ACE</p>
+                        <span class="cert-validity">Valid: 2026 - 2029</span>
+                        <a href="https://www.credly.com/badges/14558729-ab1e-46e7-84d0-2676d17a7851/public_url" target="_blank" class="cert-link">
+                            View Certificate →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-animate>
+                    <div class="cert-badge">
+                        <img src="./assets/rhce.png" alt="RHCE">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-issuer">Red Hat</span>
+                        <h3 class="cert-title">Red Hat Certified Engineer</h3>
+                        <p class="cert-code">RHCE</p>
+                        <span class="cert-validity">Valid: 2024 - 2027</span>
+                        <a href="https://www.credly.com/badges/6e23157f-1106-4739-87ba-7b700d4210c1/public_url" target="_blank" class="cert-link">
+                            View Certificate →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-animate>
+                    <div class="cert-badge">
+                        <img src="./assets/rhcsc.png" alt="RHCSC">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-issuer">Red Hat</span>
+                        <h3 class="cert-title">Red Hat Certified Specialist in Containers</h3>
+                        <p class="cert-code">RHCS-Containers</p>
+                        <span class="cert-validity">Valid: 2024 - 2027</span>
+                        <a href="https://www.credly.com/badges/b9307616-667a-40d6-a657-eff7eaa90770/public_url" target="_blank" class="cert-link">
+                            View Certificate →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-animate>
+                    <div class="cert-badge">
+                        <img src="./assets/rhcsa.png" alt="RHCSA">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-issuer">Red Hat</span>
+                        <h3 class="cert-title">Red Hat Certified System Administrator</h3>
+                        <p class="cert-code">RHCSA</p>
+                        <span class="cert-validity">Valid: 2023 - 2027</span>
+                        <a href="https://www.credly.com/badges/6eb614f8-abc9-4783-a0d9-06e5bc3bfb28/public_url" target="_blank" class="cert-link">
+                            View Certificate →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-animate>
+                    <div class="cert-badge">
+                        <img src="./assets/web-bnsp.jpg" alt="BNSP Web">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-issuer">BNSP</span>
+                        <h3 class="cert-title">Junior Web Programmer</h3>
+                        <p class="cert-code">Badan Nasional Sertifikasi Profesi</p>
+                        <span class="cert-validity">Valid: 2023 - 2026</span>
+                        <a href="https://drive.google.com/file/d/1Jc99vNxIbPEqqLy42JemCas4wPtBxA0H/view?usp=sharing" target="_blank" class="cert-link">
+                            View Certificate →
+                        </a>
+                    </div>
+                </div>
+
+                <div class="cert-card" data-animate>
+                    <div class="cert-badge">
+                        <img src="./assets/support-bnsp.jpg" alt="BNSP Support">
+                    </div>
+                    <div class="cert-content">
+                        <span class="cert-issuer">BNSP</span>
+                        <h3 class="cert-title">Junior Technical Support</h3>
+                        <p class="cert-code">Badan Nasional Sertifikasi Profesi</p>
+                        <span class="cert-validity">Valid: 2024 - 2027</span>
+                        <a href="https://drive.google.com/file/d/1J8c0j5-YE5VYpWmOfR2-CdQZ1gSp_zll/view?usp=sharing" target="_blank" class="cert-link">
+                            View Certificate →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">$ ./contact.sh --init</span>
+                <h2 class="section-title">Get<span class="text-accent">.</span>InTouch</h2>
+            </div>
+            <div class="contact-content-single">
+                <div class="contact-info" data-animate>
+                    <div class="contact-intro">
+                        <h3>Let's Connect!</h3>
+                        <p>Interested in collaborating or discussing cloud infrastructure, DevOps practices, or SRE solutions? Feel free to reach out through any of these channels.</p>
+                    </div>
+                    <div class="contact-grid">
+                        <a href="mailto:alfiantirta85@gmail.com" class="contact-card">
+                            <div class="contact-icon">📧</div>
+                            <div class="contact-info-text">
+                                <span class="contact-label">Email</span>
+                                <span class="contact-value">alfiantirta85@gmail.com</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/muhammad-alfian-tirta-kusuma" target="_blank" class="contact-card">
+                            <div class="contact-icon">💼</div>
+                            <div class="contact-info-text">
+                                <span class="contact-label">LinkedIn</span>
+                                <span class="contact-value">muhammad-alfian-tirta-kusuma</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/alfiantirta85" target="_blank" class="contact-card">
+                            <div class="contact-icon">💻</div>
+                            <div class="contact-info-text">
+                                <span class="contact-label">GitHub</span>
+                                <span class="contact-value">alfiantirta85</span>
+                            </div>
+                        </a>
+                        <a href="https://gitlab.com/alfian08" target="_blank" class="contact-card">
+                            <div class="contact-icon">⚙️</div>
+                            <div class="contact-info-text">
+                                <span class="contact-label">GitLab</span>
+                                <span class="contact-value">alfian08</span>
+                            </div>
+                        </a>
+                        <a href="https://instagram.com/iya.n8" target="_blank" class="contact-card">
+                            <div class="contact-icon">📸</div>
+                            <div class="contact-info-text">
+                                <span class="contact-label">Instagram</span>
+                                <span class="contact-value">@iya.n8</span>
+                            </div>
+                        </a>
+                        <div class="contact-card location-card">
+                            <div class="contact-icon">📍</div>
+                            <div class="contact-info-text">
+                                <span class="contact-label">Location</span>
+                                <span class="contact-value">Central Java, Indonesia</span>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="courses-section">
-                    <h3 class="courses-title fade-in">Courses & Training</h3>
-                    <div class="courses-grid">
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Adinusa</div>
-                            <h4>Monitoring with Prometheus</h4>
-                            <span class="course-year">2024</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Adinusa</div>
-                            <h4>Getting Started with ELK Stack</h4>
-                            <span class="course-year">2024</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Adinusa</div>
-                            <h4>GitLab Administration</h4>
-                            <span class="course-year">2024</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Adinusa</div>
-                            <h4>Kubernetes Administration</h4>
-                            <span class="course-year">2024</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Adinusa</div>
-                            <h4>OpenStack Administration Multi Node</h4>
-                            <span class="course-year">2024</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Adinusa</div>
-                            <h4>Ceph Administration</h4>
-                            <span class="course-year">2024</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Adinusa</div>
-                            <h4>Automation with Ansible</h4>
-                            <span class="course-year">2023</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Adinusa</div>
-                            <h4>Docker Fundamental</h4>
-                            <span class="course-year">2023</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Adinusa</div>
-                            <h4>Linux System Administration</h4>
-                            <span class="course-year">2023</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Red Hat</div>
-                            <h4>Red Hat Academy - Program Learner</h4>
-                            <span class="course-year">2024</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Dicoding</div>
-                            <h4>Architecting on AWS</h4>
-                            <span class="course-year">2023</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Dicoding</div>
-                            <h4>Cloud Practitioner Essentials</h4>
-                            <span class="course-year">2022</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">Telkom DigiUp</div>
-                            <h4>Web Programmer Python</h4>
-                            <span class="course-year">2023</span>
-                        </div>
-                        <div class="course-item fade-in">
-                            <div class="course-provider">freeCodeCamp</div>
-                            <h4>Responsive Web Design</h4>
-                            <span class="course-year">2022</span>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="sertifikat" class="section">
-            <div class="container">
-                <h2 class="section-title fade-in">Certificates</h2>
-                <div class="certificates-grid">
-                    <div class="certificate-card fade-in">
-                        <div class="certificate-image">
-                            <img src="./assets/rhcsa.png" alt="Red Hat Certified System Administrator">
-                            <div class="certificate-badge">Red Hat</div>
-                        </div>
-                        <div class="certificate-info">
-                            <h3>Red Hat Certified System Administrator (RHCSA)</h3>
-                            <p>Red Hat • 2023 - 2027</p>
-                            <a href="https://www.credly.com/badges/6eb614f8-abc9-4783-a0d9-06e5bc3bfb28/public_url" target="_blank" class="certificate-link">See Certificate →</a>
-                        </div>
-                    </div>
-                    <div class="certificate-card fade-in">
-                        <div class="certificate-image">
-                            <img src="./assets/rhcsc.png" alt="Red Hat Certified Specialist in Containers">
-                            <div class="certificate-badge">Red Hat</div>
-                        </div>
-                        <div class="certificate-info">
-                            <h3>Red Hat Certified Specialist in Containers</h3>
-                            <p>Red Hat • 2024 - 2027</p>
-                            <a href="https://www.credly.com/badges/b9307616-667a-40d6-a657-eff7eaa90770/public_url" target="_blank" class="certificate-link">See Certificate →</a>
-                        </div>
-                    </div>
-                    <div class="certificate-card fade-in">
-                        <div class="certificate-image">
-                            <img src="./assets/rhce.png" alt="Red Hat Certified Engineer">
-                            <div class="certificate-badge">Red Hat</div>
-                        </div>
-                        <div class="certificate-info">
-                            <h3>Red Hat Certified Engineer (RHCE)</h3>
-                            <p>Red Hat • 2024 - 2027</p>
-                            <a href="https://www.credly.com/badges/6e23157f-1106-4739-87ba-7b700d4210c1/public_url" target="_blank" class="certificate-link">See Certificate →</a>
-                        </div>
-                    </div>
-                    <div class="certificate-card fade-in">
-                        <div class="certificate-image">
-                            <img src="./assets/web-bnsp.jpg" alt="Red Hat Certified Engineer">
-                            <div class="certificate-badge">BNSP</div>
-                        </div>
-                        <div class="certificate-info">
-                            <h3>Junior Web Programmer</h3>
-                            <p>Badan Nasional Sertifikasi Profesi • 2023 - 2026</p>
-                            <a href="https://drive.google.com/file/d/1Jc99vNxIbPEqqLy42JemCas4wPtBxA0H/view?usp=sharing" target="_blank" class="certificate-link">See Certificate →</a>
-                        </div>
-                    </div>
-                    <div class="certificate-card fade-in">
-                        <div class="certificate-image">
-                            <img src="./assets/support-bnsp.jpg" alt="Red Hat Certified Engineer">
-                            <div class="certificate-badge">BNSP</div>
-                        </div>
-                        <div class="certificate-info">
-                            <h3>Junior Technical Support</h3>
-                            <p>Badan Nasional Sertifikasi Profesi • 2024 - 2027</p>
-                            <a href="https://drive.google.com/file/d/1J8c0j5-YE5VYpWmOfR2-CdQZ1gSp_zll/view?usp=sharing" target="_blank" class="certificate-link">See Certificate →</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="kontak" class="section contact">
-            <div class="container">
-                <h2 class="section-title fade-in">Contact</h2>
-                <div class="contact-grid">
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">📧</div>
-                        <h3>Email</h3>
-                        <a href="mailto:alfiantirta85@gmail.com">alfiantirta85@gmail.com</a>
-                    </div>
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">💼</div>
-                        <h3>LinkedIn</h3>
-                        <a href="https://linkedin.com/in/muhammad-alfian-tirta-kusuma" target="_blank">linkedin.com/in/muhammad-alfian-tirta-kusuma</a>
-                    </div>
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">🌐</div>
-                        <h3>Instagram</h3>
-                        <a href="https://instagram.com/iya.n8" target="_blank">instagram.com/iya.n8</a> </>
-                    </div>
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">💻</div>
-                        <h3>GitHub</h3>
-                        <a href="https://github.com/alfiantirta85" target="_blank">github.com/alfiantirta85</a>
-                    </div>
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">📍</div>
-                        <h3>Location</h3>
-                        <span>Central Java, Indonesia</span>
-                    </div>
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">⚙️</div>
-                        <h3>GitLab</h3>
-                        <a href="https://gitlab.com/alfian08" target="_blank">gitlab.com/alfian08</a> </>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-brand">
-                    <h3>Portfolio</h3>
-                    <p>Thank you for visiting my website!</p>
+                <div class="footer-left">
+                    <div class="footer-logo">
+                        <span class="terminal-prompt">$</span> alfian<span class="blink">_</span>
+                    </div>
+                    <p class="footer-tagline">Building reliable systems, one commit at a time.</p>
                 </div>
                 <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Navigation</h4>
-                        <ul>
-                            <li><a href="#tentang">About</a></li>
-                            <li><a href="#tools">Skills</a></li>
-                            <li><a href="#pengalaman">Experience</a></li>
-                            <li><a href="#edukasi">Education</a></li>
-                            <li><a href="#sertifikat">Certificates</a></li>
-                            <li><a href="#kontak">Contact</a></li>
-                        </ul>
+                    <div class="footer-column">
+                        <h4>Navigate</h4>
+                        <a href="#about">About</a>
+                        <a href="#skills">Skills</a>
+                        <a href="#experience">Experience</a>
+                        <a href="#projects">Projects</a>
+                        <a href="#courses">Courses</a>
+                        <a href="#certs">Certifications</a>
                     </div>
-                    <div class="footer-section">
-                        <h4>External</h4>
-                        <ul>
-                            <li><a href="https://blog-alfian.hashnode.dev" target="_blank">Blog</a></li>
-                            <li><a href="https://linkedin.com/in/muhammad-alfian-tirta-kusuma" target="_blank">LinkedIn</a></li>
-                            <li><a href="https://github.com/alfiantirta85" target="_blank">GitHub</a></li>
-                            <li><a href="https://gitlab.com/alfian08" target="_blank">GitLab</a></li>
-                            <li><a href="https://instagram.com/iya.n8" target="_blank">Instagram</a></li>
-                        </ul>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <a href="https://blog-alfian.hashnode.dev" target="_blank">Blog</a>
+                        <a href="https://linkedin.com/in/muhammad-alfian-tirta-kusuma" target="_blank">LinkedIn</a>
+                        <a href="https://github.com/alfiantirta85" target="_blank">GitHub</a>
+                        <a href="https://gitlab.com/alfian08" target="_blank">GitLab</a>
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year">2025</span> Muhammad Alfian Tirta Kusuma. All rights reserved.</p>
+           <div class="footer-bottom">
+                <p>© 2026 Muhammad Alfian Tirta Kusuma. All rights reserved.</p>
+                <p class="footer-code">$ git commit -m "feat: portfolio 2026"</p>
             </div>
         </div>
     </footer>
